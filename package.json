@@ -1,5 +1,5 @@
 {
-  "name": "helium-base",
+  "name": "helium-website-template",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "nuxt": "^3.11.2",
+    "focus-trap-vue": "^4.0.3",
     "sass": "^1.75.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "nuxt": "^3.12.3"
   }
 }

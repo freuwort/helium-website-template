@@ -7,7 +7,6 @@ export type CallbackArgument = {
     stepX: number,
     stepY: number
 }
-
 export type CallbackFunction = (_arg: CallbackArgument) => void
 
 export type InitialArguments = {
@@ -26,7 +25,6 @@ export function initiateDragListening (args: InitialArguments): void {
     let dragStartY = args.event.clientY
     let dragStepStartX = args.event.clientX
     let dragStepStartY = args.event.clientY
-
     const handleDragMouseMove = (event: MouseEvent): void => {
         const currentX = event.clientX
         const currentY = event.clientY
@@ -35,29 +33,25 @@ export function initiateDragListening (args: InitialArguments): void {
         let stepX = currentX - dragStepStartX;
         let stepY = currentY - dragStepStartY;
 
-        if(args.stepSizeX)
-        {
-            // Change the dragStepStartX to the currentX minus the remainder of the steps
+        if(args.stepSizeX) {
+            //change the dragStepStartX to the currentX minus the remainder of the steps
             dragStepStartX = currentX - (stepX % args.stepSizeX)
-
-            // Calculate how much x steps have been made
+            //calculate how much x steps have been made
             if(stepX < 0) stepX = Math.ceil(stepX / args.stepSizeX)
             if(stepX > 0) stepX = Math.floor(stepX / args.stepSizeX)
         }
-
-        if(args.stepSizeY)
-        {
-            // Change the dragStepStartY to the currentY minus the remainder of the steps
+        if(args.stepSizeY) {
+            //change the dragStepStartY to the currentY minus the remainder of the steps
             dragStepStartY = currentY - (stepY % args.stepSizeY)
-            
-            //Calculate how much y steps have been made
+            //calculate how much y steps have been made
+
             if(stepY < 0) stepY = Math.ceil(stepY / args.stepSizeY)
             if(stepY > 0) stepY = Math.floor(stepY / args.stepSizeY)
         }
-
         if(args.onlyCallbackOnStep && stepX === 0 && stepY === 0) return
         if(args.onlyCallbackOnStepX && stepX === 0) return
         if(args.onlyCallbackOnStepY && stepY === 0) return
+
 
         args.callback({
             event: event,
@@ -69,7 +63,6 @@ export function initiateDragListening (args: InitialArguments): void {
             stepY: stepY
         })
     }
-
     const handleDragMouseUp = (): void => {
         window.removeEventListener('mousemove', handleDragMouseMove)
         window.removeEventListener('mouseup', handleDragMouseUp)
@@ -81,35 +74,31 @@ export function initiateDragListening (args: InitialArguments): void {
 
     dragStartX = args.event.clientX
     dragStartY = args.event.clientY
+
 }
 
 export function temporarySetCursor (cursor: string): ()=>void {
 
-    const css = `* { cursor: ${cursor} !important; }`
-    const styletag = document.createElement("style")
+    const css = `* { cursor: ${cursor} !important; }`,
+    styletag = document.createElement("style");
 
-    styletag.type = "text/css"
-
-    if (styletag.sheet)
-    {
-        styletag.sheet.insertRule(css)
-    }
-    else
-    {
-        styletag.appendChild(document.createTextNode(css))
+    styletag.type = "text/css";
+    if (styletag.sheet) {
+        styletag.sheet.insertRule(css);
+    } else {
+        styletag.appendChild(document.createTextNode(css));
     }
 
-    document.addEventListener("mouseup", () => {
-        // Check if the style tag is still there
-        if (styletag.parentNode) styletag.remove()
-    }, {
-        once: true,
-    })
+    document.addEventListener("mouseup", function myFunction_Default() {
+        //check if the style tag is still there
+        if(styletag.parentNode)
+            styletag.remove();
+    }, { once: true});
 
-    document.body.appendChild(styletag)
+    document.body.appendChild(styletag);
 
-    return function ()
-    {
-        if (styletag.parentNode) styletag.remove()
+    return function () {
+        if(styletag.parentNode)
+            styletag.remove();
     }
 }

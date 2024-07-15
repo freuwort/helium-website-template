@@ -14,7 +14,7 @@
             <small>Dateien via Drag and Drop auswählen oder <span class="fake-link">Gerät durchsuchen</span></small>
             <small v-if="helper">{{helper}}</small>
             
-            <input type="file" ref="uploadInput" multiple @change="upload"/>
+            <input type="file" ref="uploadInput" :multiple :accept @change="upload"/>
         </div>
         <div class="upload-wrapper" v-show="selectedFiles.length > 0">
             <span>Ausgewählt:</span>
@@ -46,13 +46,21 @@
             type: Boolean,
             default: false,
         },
+        multiple: {
+            type: Boolean,
+            default: false,
+        },
+        accept: {
+            type: String,
+            default: '',
+        },
     })
 
     const emits = defineEmits([
         'update:modelValue',
     ])
 
-    const uploadInput = ref<HTMLInputElement|null>(null)
+    const uploadInput = ref()
     const selectedFiles = ref<Array<string>>([])
 
 

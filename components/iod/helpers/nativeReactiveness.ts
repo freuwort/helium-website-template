@@ -1,6 +1,5 @@
 import { Ref, ref } from "vue";
 
-//TODO: Evaluate cleanlieness of this
 //We are using "currying" because we cannot have one specified type <T> and one infered one <O> in the same function
 //https://stackoverflow.com/a/55754981
 export function exposeNativeAttribute<T>(){

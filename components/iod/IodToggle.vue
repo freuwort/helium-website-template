@@ -78,7 +78,7 @@
 
     const props = defineProps({
         modelValue: {
-            type: [Boolean, String, Number],
+            type: null as unknown as PropType<boolean | string | number | null | undefined>,
             default: null,
         },
         type: {
@@ -110,7 +110,7 @@
             default: '',
         },
         offValue: {
-            type: [Boolean, String, Number],
+            type: [Boolean, String, Number, null] as PropType<boolean|string|number|null>,
             default: false,
         },
         label: {
@@ -118,7 +118,7 @@
             default: '',
         },
         value: {
-            type: [Boolean, String, Number],
+            type: [Boolean, String, Number, null] as PropType<boolean|string|number|null>,
             default: true,
         },
         border: {
@@ -158,7 +158,7 @@
 
 
 
-    const parseValue = (value: string|boolean|number|null) => {
+    const parseValue = (value: string|boolean|number|null|undefined) => {
         if (value === props.offValue) return false
 
         if (value === props.value) return true
@@ -202,8 +202,8 @@
             // Only go through child elements and stop at the container element
             if (element === containerElement.value) return false
 
-            // Bounce event for all elements with the "mui-container" class
-            if ([...element.classList].includes('mui-container')) return true
+            // Bounce event for all elements with the "iod-container" class
+            if ([...element.classList].includes('iod-container')) return true
 
             // Bounce event for interactive elements
             if (['A', 'BUTTON', 'INPUT', 'TEXTAREA'].includes(element.tagName)) return true
@@ -229,7 +229,7 @@
 
 <style lang="sass" scoped>
     .iod-container.iod-toggle
-        --local-color-off: var(--color-border-focused)
+        --local-color-off: var(--color-border)
         --local-color-off-text: var(--color-background)
         --local-color-on: var(--color-text)
         --local-color-on-text: var(--color-background)
@@ -254,7 +254,6 @@
 
         &.active
             .checkbox
-                box-shadow: none
                 background: var(--local-color-on)
                 border-color: var(--local-color-on)
                 color: var(--local-color-on-text)
@@ -321,8 +320,7 @@
             position: relative
             z-index: 1
             user-select: none
-            border: 1px solid transparent
-            box-shadow: inset 0 0 2px var(--local-color-off)
+            border: 2px solid transparent
             transition: all 50ms ease-in-out
 
             border-color: var(--local-color-off)

@@ -119,9 +119,8 @@ const props = defineProps({
   multiple: { type: Boolean, default: false },
   name: { type: String, default: "" },
   required: { type: Boolean, default: false },
-  size: { type: Number, default: 4 }, //TODO: implement attribute (size of the list)
+  size: { type: Number, default: 4 },
   /* https://www.w3schools.com/tags/ref_standardattributes.asp */
-  //TODO: implement global attributes
 });
 
 let _DOMRect = getEmptyRefDOMBounds();
@@ -452,7 +451,7 @@ function setFocus()
   color: var(--color-text-soft)
   padding-block: .5rem
   user-select: none
-  max-height: 100vh
+  max-height: min(90vh, 20rem)
   overflow-y: auto
   font-size: .9em
   box-shadow: var(--shadow-m)
