@@ -23,7 +23,7 @@
             </HeFlex>
         </HeLimiter>
         <template #below>
-            <HeShapeDivider shape="arrow" height="2rem" background="var(--bg-blue-50)"/>
+            <HeShapeDivider shape="triangle" height="2rem" flip-x background="var(--bg-blue-50)"/>
         </template>
     </HeSection>
 
