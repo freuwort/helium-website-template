@@ -1,4 +1,10 @@
 <template>
+    <HeInfoBar>
+        <span class="mx-auto text-sm">
+            Erreichen Sie uns unter
+            <NuxtLink to="/" class="text-slate-400 hover:text-slate-200">info@example.com</NuxtLink>
+        </span>
+    </HeInfoBar>
     <AppHeader :menu>
         <template #cta>
             <IodButton to="/kontakt" label="Kontakt" corner="pill" />

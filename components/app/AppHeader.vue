@@ -2,7 +2,7 @@
     <header :class="{'scrolled': isScrolled}">
         <HeLimiter>
             <NuxtLink to="/" class="h-8">
-                <img class="block h-full" src="https://img.logoipsum.com/297.svg" alt="">
+                <img class="block h-full" src="/images/logo.svg" alt="">
             </NuxtLink>
             <HeSpacer />
             <HeMenu :menu="menu" mobile-submenu-show-toggle />

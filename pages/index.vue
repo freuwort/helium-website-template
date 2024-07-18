@@ -1,5 +1,5 @@
 <template>
-    <HeSection background="var(--bg-blue-50)">
+    <HeSection background="var(--bg-slate-100)">
         <HeLimiter>
             <HeFlex horizontal padding="4rem 0" gap="2rem" breakpoint="768" reversed>
                 <HeFlex class="flex-1">
@@ -13,7 +13,7 @@
                     </IodCarousel>
                 </HeFlex>
                 <HeFlex class="flex-1">
-                    <h1 class="m-0 text-blue-500">Iodine + Helium</h1>
+                    <h1 class="m-0">Hero Headline</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ipsum praesentium dignissimos dolorem
                         perferendis sequi aut exercitationem deserunt eos ratione asperiores excepturi quaerat non cum alias ab, qui
@@ -23,7 +23,7 @@
             </HeFlex>
         </HeLimiter>
         <template #below>
-            <HeShapeDivider shape="triangle" height="2rem" flip-x background="var(--bg-blue-50)"/>
+            <HeShapeDivider shape="triangle" height="2rem" flip-x background="var(--bg-slate-100)"/>
         </template>
     </HeSection>
 
@@ -50,15 +50,6 @@
                         </p>
                     </div>
                 </HeFlex>
-            </HeFlex>
-        </HeLimiter>
-    </HeSection>
-
-    <HeSection>
-        <HeLimiter>
-            <HeFlex padding="4rem 0" gap="2rem">
-                <h2>Button Preview</h2>
-                <PreviewButton />
             </HeFlex>
         </HeLimiter>
     </HeSection>
